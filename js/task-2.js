@@ -1,17 +1,15 @@
 'use strict';
 function calcAverageCalories(days) {
-  if (days.length === 0) {
-    return 0; // Якщо масив порожній, повертаємо 0
+  let totalCalories = 0;
+
+  for (const day of days) {
+    totalCalories += day.calories;
   }
 
-  // Підраховуємо загальну кількість калорій
-  const totalCalories = days.reduce((sum, day) => sum + day.calories, 0);
-
-  // Обчислюємо середнє значення
-  return totalCalories / days.length;
+  return days.length > 0 ? totalCalories / days.length : 0;
 }
 
-// Перевірка роботи функції
+// Перевірка
 console.log(
   calcAverageCalories([
     { day: 'monday', calories: 3010 },
